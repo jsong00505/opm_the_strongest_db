@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: ''),
+      home: MyHomePage(title: 'OPM: The Strongest'.tr()),
     );
   }
 }
@@ -59,21 +59,7 @@ class _MyHomePageState extends State<MyHomePage>
         appBar: AppBar(
           title: Text('OPM: The Strongest').tr(),
         ),
-        body: TabBarView(
-          children: <Widget>[FirstApp(list: opmCharacterList), SecondApp()],
-          controller: controller,
-        ),
-        bottomNavigationBar: TabBar(
-          tabs: <Tab>[
-            Tab(
-              icon: Icon(Icons.looks_one, color: Colors.blue),
-            ),
-            Tab(
-              icon: Icon(Icons.looks_two, color: Colors.blue),
-            )
-          ],
-          controller: controller,
-        ));
+        body: FirstApp(list: opmCharacterList));
   }
 
   @override

@@ -24,8 +24,13 @@ class FirstApp extends StatelessWidget {
                           width: 100,
                           fit: BoxFit.contain,
                         ),
-                        Text(
-                            '${list[position].name} (${list[position].rarity})'),
+                        Padding(
+                            padding: EdgeInsets.all(15), child: Text('${list[position].name}')),
+                        Padding(
+                            padding: EdgeInsets.all(15), child: Text('${list[position].rarity}')),
+                        Padding(
+                            padding: EdgeInsets.all(15), child: Text('${list[position].faction}'))
+
                       ],
                     ),
                   ),
