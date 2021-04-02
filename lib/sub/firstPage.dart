@@ -16,7 +16,7 @@ class FirstApp extends StatelessWidget {
               itemBuilder: (context, position) {
                 return GestureDetector(
                   child: Card(
-                    child: Row(
+                    child: Wrap(
                       children: <Widget>[
                         Image.asset(
                           list[position].imagePath,
@@ -25,12 +25,14 @@ class FirstApp extends StatelessWidget {
                           fit: BoxFit.contain,
                         ),
                         Padding(
-                            padding: EdgeInsets.all(15), child: Text('${list[position].name}')),
+                            padding: EdgeInsets.all(15),
+                            child: Text('${list[position].name}')),
                         Padding(
-                            padding: EdgeInsets.all(15), child: Text('${list[position].rarity}')),
+                            padding: EdgeInsets.all(15),
+                            child: Text('${list[position].rarity}')),
                         Padding(
-                            padding: EdgeInsets.all(15), child: Text('${list[position].faction}'))
-
+                            padding: EdgeInsets.all(15),
+                            child: Text('${list[position].faction}'))
                       ],
                     ),
                   ),
@@ -47,9 +49,6 @@ class FirstApp extends StatelessWidget {
                     showDialog(
                         context: context,
                         builder: (BuildContext context) => dialog);*/
-                  },
-                  onLongPress: () {
-                    list.removeAt(position);
                   },
                 );
               },

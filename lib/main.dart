@@ -1,10 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
-import 'opmCharacterItem.dart';
-import 'sub/firstPage.dart';
-import 'sub/secondPage.dart';
-import 'db/characterGenerator.dart';
+import 'package:opm_the_strongest_db/ui/homePage.dart';
+import 'package:opm_the_strongest_db/ui/details/detailPage.dart';
 
 void main() {
   runApp(EasyLocalization(
@@ -27,44 +24,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'OPM: The Strongest'.tr()),
+      /*routes: <String, WidgetBuilder>{
+        '/detail': (_) => DetailPage(null),
+      },*/
     );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage>
-    with SingleTickerProviderStateMixin {
-  TabController controller;
-  List<OpmCharacter> opmCharacterList;
-  CharacterGenerator characterGenerator;
-
-  @override
-  void initState() {
-    super.initState();
-    controller = TabController(length: 2, vsync: this);
-    characterGenerator = CharacterGenerator();
-    opmCharacterList = characterGenerator.generate();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('OPM: The Strongest').tr(),
-        ),
-        body: FirstApp(list: opmCharacterList));
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
   }
 }

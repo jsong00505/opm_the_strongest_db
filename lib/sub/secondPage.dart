@@ -15,7 +15,7 @@ class SecondApp extends StatelessWidget {
         ),
         body: Container(
             child: Center(
-                child: Column(children: <Widget>[
+                child: Wrap(children: <Widget>[
           Image.asset(
             opmCharacter.imagePath,
             fit: BoxFit.contain,
