@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:opm_the_strongest_db/opmCharacterItem.dart';
+import 'package:opm_the_strongest_db/models/opm_character_item.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:opm_the_strongest_db/common/textStyle.dart';
+import 'package:opm_the_strongest_db/common/text_style.dart';
 
 class DetailPage extends StatelessWidget {
   OpmCharacter opmCharacter;
@@ -27,7 +27,7 @@ class DetailPage extends StatelessWidget {
           children: <Widget>[
             Container(height: 60.0),
             Text(
-              opmCharacter.name,
+              opmCharacter.name.tr(),
               style: Style.headerTextStyle,
             ),
             Container(
@@ -48,7 +48,7 @@ class DetailPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  opmCharacter.roles,
+                  opmCharacter.roles.tr(),
                   style: Style.regularTextStyle,
                 )
               ],
@@ -61,10 +61,10 @@ class DetailPage extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                     child:
-                        _characterValue(value: opmCharacter.type, image: '')),
+                        _characterValue(value: opmCharacter.type.tr(), image: '')),
                 Expanded(
                     child: _characterValue(
-                        value: opmCharacter.faction, image: '')),
+                        value: opmCharacter.faction.tr(), image: '')),
               ],
             ),
           ],
@@ -123,24 +123,21 @@ class DetailPage extends StatelessWidget {
           margin: EdgeInsets.only(top: 10),
           child: RichText(
               text: TextSpan(style: Style.subHeaderTextStyle, children: [
-            TextSpan(text: element.name, style: Style.subHeaderTextBoldStyle),
+            TextSpan(text: element.name.tr(), style: Style.subHeaderTextBoldStyle),
             TextSpan(
               text: ' [ ${element.type.tr()} ]',
               style: Style.subHeaderTextBoldStyle,
             ),
-            TextSpan(text: ' : ' + element.description[0]),
-            element.description.length > 1
-                ? TextSpan(text: ' : ' + element.description[1])
-                : TextSpan(),
+            TextSpan(text: ' : ' + element.description[0].tr()),
           ])));
       skillDescriptionsByType[element.type] = description;
     });
 
-    final test2 = SingleChildScrollView(
+    final skills = SingleChildScrollView(
       child: Stack(
         children: <Widget>[
           Container(
-            height: 2000,
+            height: 800,
           ),
           Positioned(
             top: 330,
@@ -167,62 +164,6 @@ class DetailPage extends StatelessWidget {
       ),
     );
 
-    final test = SingleChildScrollView(
-      child: Stack(
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(top: 190.0),
-            height: 800,
-          ),
-          Positioned(
-            top: 100,
-            left: 46,
-            right: 46.0,
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                      margin: EdgeInsets.only(top: 250),
-                      child: Text('Skills'.tr(), style: Style.headerTextStyle)),
-                  Container(
-                    //margin: EdgeInsets.only(top: 10, left: 46.0, right: 46.0),
-                    height: 2.0,
-                    width: 18.0,
-                    color: Color(0xff00c6ff),
-                  ),
-                  skillDescriptionsByType['attack'],
-                  skillDescriptionsByType['ultimate'],
-                  skillDescriptionsByType['ultra_ultimate'],
-                  skillDescriptionsByType['passive'],
-                  skillDescriptionsByType['ultra_passive'],
-                ]),
-          )
-        ],
-      ),
-    );
-
-    final skills = Container(
-        //margin: EdgeInsets.fromLTRB(40.0, 16.0, 16.0, 16.0),
-        constraints: BoxConstraints.expand(),
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                  margin: EdgeInsets.only(top: 350, left: 46.0, right: 46.0),
-                  child: Text('Skills'.tr(), style: Style.headerTextStyle)),
-              Container(
-                margin: EdgeInsets.only(top: 10, left: 46.0, right: 46.0),
-                height: 2.0,
-                width: 18.0,
-                color: Color(0xff00c6ff),
-              ),
-              skillDescriptionsByType['attack'],
-              skillDescriptionsByType['ultimate'],
-              skillDescriptionsByType['ultra_ultimate'],
-              skillDescriptionsByType['passive'],
-              skillDescriptionsByType['ultra_passive'],
-            ]));
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -246,7 +187,7 @@ class DetailPage extends StatelessWidget {
         color: Color(0xFF736AB7),
         child: Stack(
           children: <Widget>[
-            test2,
+            skills,
             backgroundTopImage,
             borderGradation,
             characterCard,

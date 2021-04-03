@@ -1,6 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
-import 'package:opm_the_strongest_db/opmCharacterItem.dart';
+import 'package:opm_the_strongest_db/models/opm_character_item.dart';
 
 class CharacterGenerator {
   List<OpmCharacter> generate() {
@@ -20,11 +18,11 @@ class CharacterGenerator {
       var abbreviation = value[0];
       var imagePath = value[1];
       OpmCharacter opmCharacter = OpmCharacter(
-          name: name.tr(),
-          type: "${abbreviation}_type".tr(),
+          name: name,
+          type: "${abbreviation}_type",
           imagePath: "repo/images/characters/${imagePath}.png",
           rarity: "SSR",
-          faction: "${abbreviation}_faction".tr(),
+          faction: "${abbreviation}_faction",
           abbreviation: abbreviation);
 
       List<Skill> skills = [];
@@ -36,21 +34,16 @@ class CharacterGenerator {
         "ultra_passive"
       ];
       types.forEach((element) {
-        String mappingName = "${abbreviation}_${element}_name";
         Skill skill = Skill(
-            name: "${abbreviation}_${element}_name".tr(),
+            name: "${abbreviation}_${element}_name",
             cost: 0,
-            description: ["${abbreviation}_${element}_desc".tr()],
+            description: ["${abbreviation}_${element}_desc"],
             type: "$element");
-
-        if ("${abbreviation}_${element}_name".tr() != '' &&
-            mappingName != skill.name) {
-          skills.add(skill);
-        }
+        skills.add(skill);
       });
       opmCharacter.skills = skills;
 
-      String roles = '${abbreviation}_roles'.tr();
+      String roles = '${abbreviation}_roles';
       opmCharacter.roles = roles;
 
       characterList.add(opmCharacter);
@@ -58,4 +51,6 @@ class CharacterGenerator {
 
     return characterList;
   }
+
+  getFactionImagePath() {}
 }

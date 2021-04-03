@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:opm_the_strongest_db/ui/characterRow.dart';
-import 'package:opm_the_strongest_db/opmCharacterItem.dart';
+import 'package:opm_the_strongest_db/ui/characters/character_row.dart';
+import 'package:opm_the_strongest_db/models/opm_character_item.dart';
 
 class HomePageBody extends StatelessWidget {
   final List<OpmCharacter> opmCharacter;

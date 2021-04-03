@@ -62,6 +62,16 @@ flutter:
     - repo/images/characters/tank_top_master.png
     - repo/images/characters/tatsumaki.png
     - repo/images/characters/zombieman.png
+    - repo/images/icons/hero.png
+    - repo/images/icons/monster.png
+    - repo/images/icons/outlaw.png
+    - repo/images/icons/monster.png
+    - repo/images/icons/globe.png
+    - repo/images/developers/jun_profile.png
+    - repo/images/logos/github_logo.png
+    - repo/images/logos/linked_in_logo.png
+    - repo/images/logos/circle_github_logo.png
+    - repo/images/logos/circle_linkedin_logo.png
     - repo/translations/
 
 

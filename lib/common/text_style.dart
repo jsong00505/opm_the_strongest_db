@@ -26,4 +26,9 @@ class Style {
     fontSize: 18.0,
     fontWeight: FontWeight.w600,
   );
+
+  static final appBarTextStyle = baseTextStyle.copyWith(
+    color: Colors.white,
+    fontWeight: FontWeight.w600,
+  );
 }

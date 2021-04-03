@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:opm_the_strongest_db/opmCharacterItem.dart';
-import 'package:opm_the_strongest_db/common/textStyle.dart';
-import 'package:opm_the_strongest_db/ui/details/detailPage.dart';
+import 'package:opm_the_strongest_db/models/opm_character_item.dart';
+import 'package:opm_the_strongest_db/common/text_style.dart';
+import 'package:opm_the_strongest_db/ui/details/detail_page.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class CharacterRow extends StatelessWidget {
   final OpmCharacter opmCharacter;
@@ -27,13 +28,19 @@ class CharacterRow extends StatelessWidget {
           children: <Widget>[
             Container(height: 4.0),
             Text(
-              opmCharacter.name,
+              opmCharacter.name.tr(),
               style: Style.headerTextStyle,
             ),
             Container(height: 10.0),
-            Text(
-              opmCharacter.rarity,
-              style: Style.subHeaderTextStyle,
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    opmCharacter.rarity,
+                    style: Style.subHeaderTextStyle,
+                  ),
+                ),
+              ],
             ),
             Container(
               margin: EdgeInsets.symmetric(vertical: 8.0),
@@ -45,17 +52,12 @@ class CharacterRow extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                     child:
-                        _characterValue(value: opmCharacter.type, image: '')),
+                        _characterValue(value: opmCharacter.type.tr(), image: '')),
                 Expanded(
                     child: _characterValue(
-                        value: opmCharacter.faction, image: '')),
+                        value: opmCharacter.faction.tr(), image: '')),
               ],
             ),
-            /*Container(height: 4.0),*/
-            /*Text(
-              opmCharacter.roles,
-              style: Style.regularTextStyle,
-            )*/
           ],
         ));
 
@@ -93,7 +95,7 @@ class CharacterRow extends StatelessWidget {
   Widget _characterValue({String value, String image}) {
     return Row(
       children: <Widget>[
-        //Image.asset(image, height: 12.0),
+        //Image.asset(image, height: 16.0),
         Container(width: 8.0),
         Text(value, style: Style.regularTextStyle),
       ],

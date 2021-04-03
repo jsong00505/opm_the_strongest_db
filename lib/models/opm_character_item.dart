@@ -7,6 +7,7 @@ class OpmCharacter {
   String rarity;
   String characterClass;
   String faction;
+  String factionImagePath;
   String roles;
   String abbreviation;
   List<Skill> skills;
@@ -20,6 +21,7 @@ class OpmCharacter {
       @required this.imagePath,
       @required this.rarity,
       @required this.faction,
+      this.factionImagePath,
       this.abbreviation,
       this.roles,
       this.skills,

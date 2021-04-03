@@ -1,9 +1,10 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:opm_the_strongest_db/ui/homePageBody.dart';
+import 'package:opm_the_strongest_db/ui/home_page_body.dart';
+import 'package:opm_the_strongest_db/ui/opm_app_bar.dart';
+import 'package:opm_the_strongest_db/ui/opm_drawer.dart';
 
-import '../opmCharacterItem.dart';
-import '../db/characterGenerator.dart';
+import '../models/opm_character_item.dart';
+import '../db/character_generator.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -31,24 +32,8 @@ class _MyHomePageState extends State<MyHomePage>
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.deepPurple[400],
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text(
-            'OPM: The Strongest'.tr(),
-            style: TextStyle(
-                color: Colors.white,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w600),
-          ),
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.topRight,
-                    colors: <Color>[Color(0xFF3366FF), Color(0xFF00CCFF)])),
-          ),
-        ),
-        //body: FirstApp(list: opmCharacterList));
+        appBar: OpmAppBar().build(context),
+        drawer: OpmDrawer().build(context),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:opm_the_strongest_db/ui/homePage.dart';
-import 'package:opm_the_strongest_db/ui/details/detailPage.dart';
+import 'package:opm_the_strongest_db/ui/characters/character_page.dart';
 
 void main() {
   runApp(EasyLocalization(
@@ -23,10 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'OPM: The Strongest'.tr()),
-      /*routes: <String, WidgetBuilder>{
-        '/detail': (_) => DetailPage(null),
-      },*/
+      home: CharacterPage(title: 'OPM: The Strongest'.tr()),
     );
   }
 }
