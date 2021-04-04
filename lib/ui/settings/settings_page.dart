@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:opm_the_strongest_db/ui/settings/language_config_page.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:opm_the_strongest_db/common/text_style.dart';
 
 class SettingsPage extends StatelessWidget {
   @override
@@ -7,6 +9,7 @@ class SettingsPage extends StatelessWidget {
     List<String> settings = ["Language"];
 
     return Scaffold(
+      backgroundColor: Colors.deepPurple[400],
       appBar: AppBar(
         title: Text('Settings'),
       ),
@@ -16,6 +19,7 @@ class SettingsPage extends StatelessWidget {
               itemBuilder: (context, position) {
                 return GestureDetector(
                   child: Card(
+                    color: Color(0xFF333366),
                     child: Wrap(
                       children: <Widget>[
                         Image.asset(
@@ -26,12 +30,15 @@ class SettingsPage extends StatelessWidget {
                         ),
                         Padding(
                             padding: EdgeInsets.all(15),
-                            child: Text('${settings[position]}')),
+                            child: Text(
+                              '${settings[position]}'.tr(),
+                              style: Style.regularTextStyle,
+                            )),
                       ],
                     ),
                   ),
-                  onTap: () => Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => LanguageConfigPage())),
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => LanguageConfigPage())),
                 );
               },
               itemCount: settings.length),

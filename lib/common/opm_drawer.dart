@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:opm_the_strongest_db/common/text_style.dart';
-import 'file:///C:/dev/workspace/FlutterProject/OpmTheStrongestDb/opm_the_strongest_db/lib/ui/settings/settings_page.dart';
+import 'package:opm_the_strongest_db/ui/home_page.dart';
+import 'package:opm_the_strongest_db/ui/settings/settings_page.dart';
+import 'package:opm_the_strongest_db/ui/characters/character_page.dart';
 
 class OpmDrawer extends StatelessWidget {
   @override
@@ -38,9 +40,8 @@ class OpmDrawer extends StatelessWidget {
             color: Colors.grey[850],
           ),
           title: Text('Home'),
-          onTap: () {
-            print('Home is clicked');
-          },
+          onTap: () => Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => MyHomePage())),
           //trailing: Icon(Icons.add),
         ),
         ListTile(
@@ -49,9 +50,8 @@ class OpmDrawer extends StatelessWidget {
             color: Colors.grey[850],
           ),
           title: Text('Characters'),
-          onTap: () {
-            print('Characters is clicked');
-          },
+          onTap: () => Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => CharacterPage())),
           //trailing: Icon(Icons.add),
         ),
         ListTile(

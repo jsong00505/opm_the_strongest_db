@@ -5,7 +5,6 @@ import 'package:opm_the_strongest_db/common/text_style.dart';
 class OpmAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     final searchButton = IconButton(
       onPressed: () {},
       icon: Icon(
@@ -40,5 +39,4 @@ class OpmAppBar extends StatelessWidget {
       ],
     );
   }
-
 }
